@@ -1,0 +1,89 @@
+body {
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+}
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    .logo-anchor{
+        margin-left: 100px;
+        .logo{
+            height: 50px;
+        }
+    }
+    h1 {
+        color: $main-red;
+        margin-right: 100px;
+    }
+}
+
+
+.photographer_section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px;
+    .photographer{
+        justify-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        &__link{
+            display: flex;
+            text-decoration: none;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+
+            &:hover{
+                .photographer__link__pic-container{
+                    .photographer__pic{
+                        height: calc($index-photographer-pic-zoom + 10%);
+                        width:  calc($index-photographer-pic-zoom + 10%);
+                    }
+                }
+                .photographer__link__name{
+                        color:scale-color($index-photographer-name-color,$lightness:20%);
+                }
+            }
+            &__pic-container{
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-bottom: 20px;
+                .photographer__pic{
+                    height: $index-photographer-pic-zoom;
+                    width: $index-photographer-pic-zoom;
+                    object-fit: cover;
+                }
+            }
+            &__name{
+                color: $index-photographer-name-color;
+                font-size: 36px;
+                margin: 0;
+            }
+
+        }
+
+        &__location{
+            color: $main-red;
+            margin-bottom: 5px;
+        }
+        &__tagline{
+            margin-bottom: 5px;
+        }
+
+        &__price{
+            color: $light-grey;
+            font-size: 12px;
+        }
+    }
+}
