@@ -1,0 +1,19 @@
+{
+  "name": "oc-projet-6",
+  "version": "1.0.0",
+  "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./css/style.css --style compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Geoffroy-Blomme/OC-PROJET-6.git"
+  },
+  "author": "Geoffroy BLOMME",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Geoffroy-Blomme/OC-PROJET-6/issues"
+  },
+  "homepage": "https://github.com/Geoffroy-Blomme/OC-PROJET-6#readme"
+}
