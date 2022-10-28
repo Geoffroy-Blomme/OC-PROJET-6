@@ -15,17 +15,5 @@ header {
             height: 50px;
         }
     }
-    .photographers-link{
-        text-decoration: none;
-        &:hover{
-            .photographers-link__title{
-                @include lighten-color($header-link-color);
-            }
-        }
-
-        &__title{
-            color: $header-link-color;
-            margin-right: 100px;
-        }
-    }
+ 
 }

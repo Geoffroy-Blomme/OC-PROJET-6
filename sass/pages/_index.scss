@@ -1,6 +1,7 @@
 header {
     .photographers-link{
         text-decoration: none;
+        margin-right: 100px;
         &:hover{
             .photographers-link__title{
                 @include lighten-color($header-link-color);
@@ -9,11 +10,10 @@ header {
 
         &__title{
             color: $header-link-color;
-            margin-right: 100px;
         }
     }
 
-
+}
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -79,5 +79,4 @@ header {
             font-size: 14px;
         }
     }
-}
 }
