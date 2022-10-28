@@ -4,3 +4,6 @@
 
 Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
 
+## Lien du Github Pages
+
+https://geoffroy-blomme.github.io/OC-PROJET-6/
