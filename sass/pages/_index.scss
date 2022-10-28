@@ -1,21 +1,5 @@
-body {
-    font-family: "DM Sans", sans-serif;
-    margin: 0;
-}
-
 
 header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
-    .logo-link{
-        margin-left: 100px;
-        .logo{
-            height: 50px;
-        }
-    }
     .photographers-link{
         text-decoration: none;
         &:hover{
@@ -85,14 +69,16 @@ header {
         &__location{
             color: $main-red;
             margin-bottom: 5px;
+            font-size: 20px;
         }
         &__tagline{
             margin-bottom: 5px;
+            font-size: 16px;
         }
 
         &__price{
             color: $light-grey;
-            font-size: 12px;
+            font-size: 14px;
         }
     }
 }

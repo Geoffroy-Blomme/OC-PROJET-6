@@ -3,42 +3,33 @@ function photographerFactory(data) {
 
     const picture = `assets/photographers/${portrait}`;
 
+    // For each entry of data, we create a link parameter
+    function createlinkParams(){
+        let linkParams = "";
+        
+        for (const [key, value] of Object.entries(data)) {
+            linkParams+= `${key}=${value}&`
+          }
+        return linkParams;
+    }
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
-        const anchor = document.createElement( 'a' );
-        const imgContainer = document.createElement( 'div' );
-        const img = document.createElement( 'img' );
-        const divLocation = document.createElement( 'div' );
-        const divTagLine = document.createElement('div');
-        const divPrice = document.createElement('div');
-        const h2 = document.createElement( 'h2' );
-
-        anchor.setAttribute("href","");
-        anchor.setAttribute("aria-label","Lien vers page de " + name );
-        img.setAttribute("src", picture);
-        img.setAttribute("alt","Portrait de " + name);
-        h2.textContent = name;
-        divLocation.textContent = country + ", " + city ;
-        divTagLine.textContent = tagline;
-        divPrice.textContent = price + "€/jour";
-
-        h2.classList.add('photographer__link__name');
-        img.classList.add('photographer__pic');
-        imgContainer.classList.add('photographer__link__pic-container');
         article.classList.add('photographer');
-        anchor.classList.add('photographer__link');
-        divLocation.classList.add("photographer__location");
-        divTagLine.classList.add('photographer__tagline');
-        divPrice.classList.add('photographer__price');
+        let linkParams = createlinkParams();
 
-        imgContainer.appendChild(img);
-        anchor.appendChild(imgContainer);
-        anchor.appendChild(h2);
-        article.appendChild(anchor);
-        article.appendChild(divLocation);
-        article.appendChild(divTagLine);
-        article.appendChild(divPrice);
+        const articleInnerHtml = `
+            <a class="photographer__link" href="photographer.html?${linkParams}" aria-label="Lien vers page de ${name}">
+                <div class="photographer__link__pic-container">
+                <img src="${picture}" alt="Portrait de ${name}" class="photographer__pic">
+                </div>
+                <h2 class="photographer__link__name">${name}</h2>
+            </a>
+            <div class="photographer__location">${country}, ${city}</div>
+            <div class="photographer__tagline">${tagline}</div>
+            <div class="photographer__price">${price}€/jour</div>
+        `
+        article.innerHTML += articleInnerHtml;
 
         return (article);
     }
