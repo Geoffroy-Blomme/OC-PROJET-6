@@ -10,15 +10,24 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 90px;
-    .logo-anchor{
+    .logo-link{
         margin-left: 100px;
         .logo{
             height: 50px;
         }
     }
-    h1 {
-        color: $main-red;
-        margin-right: 100px;
+    .photographers-link{
+        text-decoration: none;
+        &:hover{
+            .photographers-link__title{
+                @include lighten-color($header-link-color);
+            }
+        }
+
+        &__title{
+            color: $header-link-color;
+            margin-right: 100px;
+        }
     }
 }
 
@@ -45,12 +54,12 @@ header {
             &:hover{
                 .photographer__link__pic-container{
                     .photographer__pic{
-                        height: calc($index-photographer-pic-zoom + 10%);
-                        width:  calc($index-photographer-pic-zoom + 10%);
+                        height: 110%;
+                        width:  110%;
                     }
                 }
                 .photographer__link__name{
-                        color:scale-color($index-photographer-name-color,$lightness:20%);
+                        @include lighten-color($index-photographer-name-color);
                 }
             }
             &__pic-container{
@@ -60,8 +69,8 @@ header {
                 overflow: hidden;
                 margin-bottom: 20px;
                 .photographer__pic{
-                    height: $index-photographer-pic-zoom;
-                    width: $index-photographer-pic-zoom;
+                    height: 100%;
+                    width: 100%;
                     object-fit: cover;
                 }
             }

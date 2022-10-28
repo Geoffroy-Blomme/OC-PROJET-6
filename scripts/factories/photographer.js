@@ -3,6 +3,7 @@ function photographerFactory(data) {
 
     const picture = `assets/photographers/${portrait}`;
 
+
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const anchor = document.createElement( 'a' );
