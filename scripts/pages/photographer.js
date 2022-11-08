@@ -3,7 +3,7 @@ let paramsValues = {};
 const id = params.get('id');
 const filterButton = document.querySelector(".media-filters-container");
 const filtersMediaList = document.querySelector(".filter-selector__list");
-
+const mediaSection = document.querySelector(".medias");
 /*
 Par défaut true, sera false si le photographe n'est pas trouvable dans les données
 */
@@ -41,13 +41,20 @@ function getPhotographerData(photographerId, photographers){
     
 }
 
-async function displayData(photographer) {
+async function displayDataPhotographer(photographer) {
     const photographHeader = document.querySelector(".photograph-header");
     const photographerModel = photographerFactory(photographer);
     const photographerHeaderDOM = photographerModel.getPhotographerHeaderDOM();
     photographHeader.appendChild(photographerHeaderDOM);
 
+
 };
+
+async function displayDataMedia(medias,name){
+    const mediaModel = mediaFactory(medias,name);
+    const mediaCardDOM =  mediaModel.getMediaCardDOM();
+    mediaSection.appendChild(mediaCardDOM);
+}
 
 // Toggle la rotation de l'arrow du filterButton
 function filterButtonArrowToggle(){
@@ -82,7 +89,10 @@ async function init() {
     // Récupère les datas de notre photographe
     const photographerData = getPhotographerData(id, photographers);
     filtersMediaListTextContent();
-    displayData(photographerData);
+    displayDataPhotographer(photographerData);
+    const name = photographerData.name;
+    console.log(photographerMedia);
+    displayDataMedia(photographerMedia,name);
 }
 
 init();
