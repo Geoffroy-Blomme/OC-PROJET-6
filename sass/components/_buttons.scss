@@ -1,0 +1,14 @@
+.btn{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    padding: $btn-padding;
+    width: $btn-width;
+    height: $btn-height;
+    border: none;
+    background-color: $main-red;
+    border-radius: 5px;
+    cursor: pointer;
+}

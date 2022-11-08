@@ -1,0 +1,11 @@
+.photographer__pic-container{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    .photographer__pic{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}

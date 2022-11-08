@@ -1,0 +1,24 @@
+.photograph-header {
+    background-color: #FAFAFA;
+    height: 300px;
+    &__container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+
+        .photographer__profile{
+            &__location{
+                margin-top: 10px;
+                margin-bottom: 15px;
+            }
+            &__tagline{
+                color: $light-grey;
+                font-size: 18px;
+            }
+        }
+    }
+}

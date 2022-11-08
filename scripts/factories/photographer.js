@@ -3,35 +3,46 @@ function photographerFactory(data) {
 
     const picture = `assets/photographers/${portrait}`;
 
-    // For each entry of data, we create a link parameter
-    function createlinkParams(){
-        let linkParams = "";
-        
-        for (const [key, value] of Object.entries(data)) {
-            linkParams+= `${key}=${value}&`
-          }
-        return linkParams;
-    }
-
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         article.classList.add('photographer');
-        let linkParams = createlinkParams();
 
         const articleInnerHtml = `
-            <a class="photographer__link" href="photographer.html?${linkParams}" aria-label="Lien vers page de ${name}">
-                <div class="photographer__link__pic-container">
-                <img src="${picture}" alt="Portrait de ${name}" class="photographer__pic">
+            <a class="photographer__link" href="photographer.html?id=${id}" aria-label="Lien vers page de ${name}">
+                    <div class="photographer__pic-container">
+                    <img src="${picture}" alt="Portrait de ${name}" class="photographer__pic">
+                    </div>
+                <div class="photographer__profile">
+                    <h2 class="photographer__profile__name">${name}</h2>
+                    <div class="photographer__profile__location">${country}, ${city}</div>
+                    <div class="photographer__profile__tagline">${tagline}</div>
+                    <div class="photographer__profile__price">${price}€/jour</div>
                 </div>
-                <h2 class="photographer__link__name">${name}</h2>
             </a>
-            <div class="photographer__location">${country}, ${city}</div>
-            <div class="photographer__tagline">${tagline}</div>
-            <div class="photographer__price">${price}€/jour</div>
         `
         article.innerHTML += articleInnerHtml;
 
         return (article);
     }
-    return { name, picture, id, city,country, price, tagline, getUserCardDOM }
+
+    function getPhotographerHeaderDOM(){
+    const photographerHeaderDiv = document.createElement('div');
+    photographerHeaderDiv.classList.add("photograph-header__container");
+    const photographerHeaderInnerHTML = 
+    `<div class="photographer__profile">
+        <h2 class="photographer__profile__name">${name}</h2>
+        <div class="photographer__profile__location">${country}, ${city}</div>            
+        <div class="photographer__profile__tagline">${tagline}</div>
+    </div>
+    <button aria-label="Contact me" class="contact_button btn" onclick="displayModal()">Contactez-moi</button>
+    <div class="photographer__pic-container">
+        <img src="${picture}" alt="Portrait de ${name}" class="photographer__pic">
+    </div>
+    `;
+    photographerHeaderDiv.innerHTML += photographerHeaderInnerHTML;
+    
+    return (photographerHeaderDiv);
+    }
+
+    return { name, picture, id, city,country, price, tagline, getUserCardDOM, getPhotographerHeaderDOM }
 }

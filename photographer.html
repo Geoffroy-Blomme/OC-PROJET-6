@@ -2,6 +2,7 @@
 <html>
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/69467d0ea5.js" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
@@ -10,11 +11,38 @@
   <body>
     <header>
       <a href="./index.html" class="logo-link">
-        <img src="assets/images/logo.png" class="logo" />
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
       </a>    </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      </div>
+      <div class="filters-media">
+        <label class="filters-media__text">
+          Trier par
+        </label>
+        <div data-value="Popularité" class="filter-selector">
+          <button role="button" data-value="Popularité" aria-expanded="false" aria-haspopup="yes" aria-label="Trier en fonction d'un filtre" tabindex="0" class="filter-selector__button btn">
+
+          </button>
+          <span class="filter-selector__arrow-logo">
+            <i class="fa-solid fa-angle-down fa-lg"></i>
+
+          </span>
+          <div class="filter-selector__list-container">
+            <ul role="listbox" aria-activedescendant="option1" tabindex="0" class="filter-selector__list">
+              <li class="btn" role="option" tabindex="0" data-value="Popularité">
+
+              </li>
+
+              <li class="btn" role="option" tabindex="0" data-value="Date" >
+
+              </li>
+              <li class="btn" role="option" tabindex="0" data-value="Titre" >
+
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </main>
     <div id="contact_modal">
@@ -32,7 +60,9 @@
 				</form>
 			</div>
 		</div>
+    <script src="scripts/factories/photographer.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/filterSelector.js"></script>
   </body>
 </html>

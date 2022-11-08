@@ -5,5 +5,14 @@
 @import './utils/mixins.scss';
 @import './base/common.scss';
 
+@import './components/contact-button';
+@import './components/buttons';
+@import './components/photographer-profile';
+@import './components/thumb-photographer';
+@import './components/photographer-header'; 
+@import './components/photographer-profile-pic';
+@import './components/filters-dropdown';
+
+
 @import './pages/photographer.scss';
 @import './pages/index.scss';
