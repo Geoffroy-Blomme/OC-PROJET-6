@@ -2,6 +2,7 @@ function displayModal() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
     modal.style.height = getBodyHeight() +"px";
+    document.querySelector(".contact_modal__close-logo").focus();
 }
 
 function closeModal() {
