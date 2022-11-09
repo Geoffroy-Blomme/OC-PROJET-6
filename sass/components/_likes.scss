@@ -1,0 +1,8 @@
+.likes{
+    color: $main-red;
+    font-size: 24px;
+    display: flex;
+    &__logo{
+        cursor: pointer;
+    }
+}

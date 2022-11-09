@@ -4,6 +4,7 @@ const id = params.get('id');
 const filterButton = document.querySelector(".media-filters-container");
 const filtersMediaList = document.querySelector(".filter-selector__list");
 const mediaSection = document.querySelector(".medias");
+const stickyInfo = document.querySelector(".sticky-info");
 /*
 Par défaut true, sera false si le photographe n'est pas trouvable dans les données
 */
@@ -81,6 +82,34 @@ function filtersMediaListTextContent(){
 
 }
 
+function stickyInfoPrice(photographerData){
+    const stickyInfoPrice = document.querySelector(".sticky-info__price");
+    stickyInfoPrice.innerHTML = photographerData.price + "€ / jour";
+}
+
+// retourne la somme des likes des medias.
+function getTotalOfLikes(){
+    const likesNumbers = document.querySelectorAll(".likes__number");
+    let totalLikes = 0;
+    likesNumbers.forEach(elt => {
+        // On verifie que le contenu soit bien un numero et que ce ne soit pas vide.
+        if((!isNaN(elt.innerText)) && elt.innerText != ''){
+            totalLikes += parseInt(elt.innerText);
+        }
+    });
+    return totalLikes;
+}
+
+function stickyInfoLikesNumber(){
+    const stickyInfoLikesNumber = document.querySelector(".sticky-info .likes__number");
+    stickyInfoLikesNumber.innerHTML = getTotalOfLikes();
+}
+
+function contactModalAddNameToTitle(name){
+    const contactModalTitle = document.querySelector(".contact_modal__title");
+    contactModalTitle.innerHTML += `<br> ${name}`;
+}
+
 async function init() {
     // Récupère les datas des photographes et des medias
     const { photographers, media } = await getPhotographers();
@@ -91,8 +120,10 @@ async function init() {
     filtersMediaListTextContent();
     displayDataPhotographer(photographerData);
     const name = photographerData.name;
-    console.log(photographerMedia);
     displayDataMedia(photographerMedia,name);
+    stickyInfoPrice(photographerData);
+    stickyInfoLikesNumber();
+    contactModalAddNameToTitle(name);
 }
 
 init();

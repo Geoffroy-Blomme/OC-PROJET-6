@@ -1,0 +1,29 @@
+.thumb-imgfull{
+    &__media-container{
+        height: 350px;
+        width: $media-width;
+        img{
+            border-radius: 5px;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        video{
+            border-radius: 5px;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    &__text-container{
+        display: flex;
+        width: $media-width;
+        margin-top: 7px;
+        justify-content: space-between;
+        .thumb-imgfull__text{
+            font-weight: 400;
+            color: $main-red;
+            font-size: 24px;
+        }
+    }
+}

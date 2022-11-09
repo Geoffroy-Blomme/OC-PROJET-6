@@ -9,7 +9,7 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
-    <header>
+    <header class="main-header">
       <a href="./index.html" class="logo-link">
         <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
       </a>    </header>
@@ -48,19 +48,39 @@
       <section class="medias">
 
       </section>
+      <div class="sticky-info">
+        <div class="likes">
+          <span class="likes__number">
+
+          </span>
+          <span class="likes__logo">
+            &hearts;
+          </span>
+        </div>
+        <div class="sticky-info__price">
+          
+        </div>
+      </div>
     </main>
-    <div id="contact_modal">
+    <div aria-labelledby="contact_modal__title" id="contact_modal">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
+          <h1 id="contact_modal__title" class="contact_modal__title">Contactez-moi</h1>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
+				<form class="contact__modal__form">
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="first-name">Prénom</label>
+						<input aria-label="First Name" type="text" name="first-name" id="first-name" />
+            <label for="last-name">Nom
+            </label>
+            <input aria-label="Last Name" type="text" name="last-name" id="last-name">
+            <label for="email">Email</label>
+            <input aria-label="Email" type="text" name="email" id="email">
+            <label for="message">Votre message</label>
+            <textarea aria-label="Your message" name="message" id="message" rows="10"></textarea>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button  aria-label="Send , Close Contact form" onclick="closeModal();consoleLogResultOfForm()" type="button" class="btn contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>

@@ -1,4 +1,6 @@
 .photographer{
+    max-width: 300px;
+    justify-self: center;
         &__profile{
             display: flex;
             flex-direction: column;

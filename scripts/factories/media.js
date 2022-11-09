@@ -13,7 +13,6 @@ function mediaFactory(data,name){
 
     function getVideoDOM(videoData, link){
         let videoDOM = document.createDocumentFragment();
-        console.log(link + videoData.video);
         const videoDOMInnerHtml = 
         `
         <video controls class="thumb-imgfull__video" src="${link}/${videoData.video}">
@@ -27,7 +26,7 @@ function mediaFactory(data,name){
         let imgDOM = document.createDocumentFragment();
         const imgDOMInnerHtml = 
         `
-        <img  class="thumb-imgfull__img" src="${link}/${imageData.image}" altPhoto : ${data[i].title}
+        <img  class="thumb-imgfull__img" src="${link}/${imageData.image}" alt="Photo : ${data[i].title}" />
         `;
         imgDOM.innerHTML = imgDOMInnerHtml;
         return imgDOM;
@@ -56,22 +55,25 @@ function mediaFactory(data,name){
             const thumbImgFullInnerHtml = 
             `
             <article class="thumb-imgfull">
-                <div class=".thumb-imgfull__img-container">
+                <div class="thumb-imgfull__media-container">
                     ${mediaDOM.innerHTML}
-                    <div class="thumb-imgfull__text-container">
-                        <span class="thumb-imgfull__text">
-                        ${data[i].title}
-                        </span>
-                        <div class="likes">
-                            <span class="likes__number">
-                            ${data[i].likes}
-                            </span>
-                            <span class="likes__logo">
-                            &hearts;
-                            </span>
-                        </div>
-                    </div>
                 </div>
+                
+                <div class="thumb-imgfull__text-container">
+                    <span class="thumb-imgfull__text">
+                        ${data[i].title}
+                    </span>
+            
+                    <div class="likes">
+                        <span class="likes__number">
+                            ${data[i].likes}
+                        </span>
+                        <span class="likes__logo">
+                            &hearts;
+                        </span>
+                    </div>
+                </div> 
+               
             </article>
             `
             div.innerHTML += thumbImgFullInnerHtml;
