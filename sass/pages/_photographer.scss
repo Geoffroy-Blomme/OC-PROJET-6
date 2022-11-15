@@ -33,43 +33,63 @@
         display: flex;
         flex-wrap: wrap;
         .thumb-imgfull{
-            width: 33%;
+            width: 30%;
+            //On aura donc 3 thumbs par lignes, la variable $photographer-thumb-imgfull-nb-elements-on-one-line est a changer si cela change
+
             align-items: center;
-            // On aura trois thumb-imgfull par ligne donc on target la derniere de chaque ligne qui contient trois thumb ici
-            &:nth-of-type(3n){
-                margin-right: 0;
-                align-items:flex-end;
-            }
 
-            // Target le premier element de chaque ligne
-            &:nth-of-type(3n+1){
-                margin-left: 0;
-                align-items:flex-start;
+            @include photographer-thumb-imgfull-first-of-lines;
+            
+           @include photographer-thumb-imgfull-last-of-lines;
 
-            }
             display: flex;
             flex-direction: column;
-            margin-bottom: 25px;
+            margin-bottom: $photographer-thumb-imgfull-margin-bottom;
         }
     }
     @include tablet-only{
         margin: 50px map-get($map: $common-margin, $key: 'tablet');
+        .medias-container{
+            .thumb-imgfull{
+                width: 45%;
+
+                &:nth-of-type(3n){
+                    margin: 0 auto;
+                    margin-bottom: $photographer-thumb-imgfull-margin-bottom;
+
+                    align-items: center;
+                }
+                &:nth-of-type(3n+1){
+                    margin: 0 auto;
+                    margin-bottom: $photographer-thumb-imgfull-margin-bottom;
+
+                    align-items: center;
+    
+                }
+            }}
     }
 
     @include mobile-only{
         margin: 40px map-get($map: $common-margin, $key: 'mobile');
-        &-container{
+        .medias-container{
             .thumb-imgfull{
-                width: 50%;
+                width: 90%;
+                margin-bottom: $photographer-thumb-imgfull-margin-bottom;
+
                 &:nth-of-type(3n){
-                    margin: 0;
+                    margin: 0 auto;
+                    margin-bottom: $photographer-thumb-imgfull-margin-bottom;
+
                     align-items: center;
                 }
                 &:nth-of-type(3n+1){
-                    margin: 0;
+                    margin: 0 auto;
+                    margin-bottom: $photographer-thumb-imgfull-margin-bottom;
+
                     align-items: center;
     
                 }
+                
             }
         }
     }

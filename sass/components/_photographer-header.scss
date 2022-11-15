@@ -21,4 +21,25 @@
             }
         }
     }
+
+    @include mobile-only{
+        height: auto;
+        &__container{
+            flex-direction: column;
+            padding-top: 20px;
+            .photographer__profile{
+                align-items: center;
+                &__name{
+                    text-align: center;
+                }
+            }
+
+            .contact_button{
+                margin: 20px auto;
+            }
+            .photographer__pic-container{
+                margin: 20px auto;
+            }
+        }
+    }
 }

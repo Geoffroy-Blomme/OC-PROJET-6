@@ -32,4 +32,10 @@ body {
             margin-left: map-get($map: $common-margin, $key: 'tablet');
         }
     }
+    @include mobile-only{
+        .logo-link{
+            margin-left: map-get($map: $common-margin, $key: 'mobile');
+
+        }
+    }
 }
