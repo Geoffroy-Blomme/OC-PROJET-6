@@ -4,6 +4,7 @@ body {
 }
 html { 
     height:100%;
+    max-width: 1500px;
 }
 body { 
     min-height:100%;
@@ -26,5 +27,9 @@ body {
             height: 50px;
         }
     }
- 
+    @include tablet-only{
+        .logo-link{
+            margin-left: map-get($map: $common-margin, $key: 'tablet');
+        }
+    }
 }

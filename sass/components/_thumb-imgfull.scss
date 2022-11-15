@@ -1,7 +1,9 @@
 .thumb-imgfull{
+    margin-right: auto;
+    margin-left: auto;
     &__media-container{
         height: 350px;
-        width: $media-width;
+        width: map-get($map: $thumb-imgfull-width, $key: 'desktop');
         img{
             border-radius: 5px;
             height: 100%;
@@ -17,13 +19,37 @@
     }
     &__text-container{
         display: flex;
-        width: $media-width;
         margin-top: 7px;
         justify-content: space-between;
+        width: map-get($map: $thumb-imgfull-width, $key: 'desktop');
+
         .thumb-imgfull__text{
             font-weight: 400;
             color: $main-red;
             font-size: 24px;
+        }
+    }
+
+    @include tablet-only{
+        &__media-container{
+            width: map-get($map: $thumb-imgfull-width, $key: 'tablet');
+
+        }
+        &__text-container{
+            width: map-get($map: $thumb-imgfull-width, $key: 'tablet');
+
+        }
+    }
+
+    @include mobile-only{
+        &__media-container{
+            width: map-get($map: $thumb-imgfull-width, $key: 'mobile');
+            height: 300px;
+
+        }
+        &__text-container{
+            width: map-get($map: $thumb-imgfull-width, $key: 'mobile');
+
         }
     }
 }

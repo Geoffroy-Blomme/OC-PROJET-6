@@ -1,3 +1,15 @@
 @mixin lighten-color($color){
     color: scale-color($color: $color, $lightness: 20%);
 }
+
+@mixin tablet-only{
+    @media screen and (max-width:map-get($breakpoints,'tablet')){
+        @content;
+    }
+}
+
+@mixin mobile-only{
+    @media screen and (max-width:map-get($breakpoints,'mobile')){
+        @content;
+    }
+}

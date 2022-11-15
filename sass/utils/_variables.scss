@@ -1,11 +1,26 @@
+$breakpoints:(
+    'mobile':768px,
+    'tablet':992px
+);
 $index-photographer-name-color:$light-brown;
 
 $header-link-color:$main-red;
 
-$photographer-common-margin:100px;
-
+$common-margin: (
+    'mobile' : 20px,
+    'tablet' : 50px,
+    'desktop' : 100px
+);
 $btn-height:70px;
 $btn-width:170px;
 $btn-padding:20px;
 
-$media-width:300px;
+$contact-modal-padding:35px;
+$contact-modal-close-img-heigt:30px;
+$contact-modal-img-right:15px;
+
+$thumb-imgfull-width:(
+    'mobile':200px,
+    'tablet':250px,
+    'desktop' : 300px
+);

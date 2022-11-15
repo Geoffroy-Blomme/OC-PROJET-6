@@ -107,7 +107,7 @@ function stickyInfoLikesNumber(){
 
 function contactModalAddNameToTitle(name){
     const contactModalTitle = document.querySelector(".contact_modal__title");
-    contactModalTitle.innerHTML += `<br> ${name}`;
+    contactModalTitle.innerText += `\r\n ${name}`;
 }
 
 async function init() {

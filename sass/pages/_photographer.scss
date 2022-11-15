@@ -3,11 +3,14 @@
 }
 
 .photograph-header{
-    margin: 0 $photographer-common-margin;
+    margin: 0 map-get($map: $common-margin, $key: 'desktop');
+    @include tablet-only{
+        margin: 0 map-get($map: $common-margin, $key:'tablet' );
+    }
 }
 
 .filters-media{
-    margin:0 $photographer-common-margin;
+    margin:0 map-get($map: $common-margin, $key: desktop);
     display: flex;
     align-items: center;
     margin-top: 20px;
@@ -16,19 +19,58 @@
         font-weight: 700;
         margin-right: 30px;
     }
+
+    @include tablet-only{
+        margin: 0 map-get($map: $common-margin, $key:'tablet' );
+        margin-top: 20px;
+
+    }
 }
 
 .medias{
-    margin-top: 50px;
-    margin-left: $photographer-common-margin;
+    margin: 50px map-get($map: $common-margin, $key: 'desktop') 0 map-get($map: $common-margin, $key: 'desktop');
     &-container{
         display: flex;
         flex-wrap: wrap;
         .thumb-imgfull{
             width: 33%;
+            align-items: center;
+            // On aura trois thumb-imgfull par ligne donc on target la derniere de chaque ligne qui contient trois thumb ici
+            &:nth-of-type(3n){
+                margin-right: 0;
+                align-items:flex-end;
+            }
+
+            // Target le premier element de chaque ligne
+            &:nth-of-type(3n+1){
+                margin-left: 0;
+                align-items:flex-start;
+
+            }
             display: flex;
             flex-direction: column;
             margin-bottom: 25px;
+        }
+    }
+    @include tablet-only{
+        margin: 50px map-get($map: $common-margin, $key: 'tablet');
+    }
+
+    @include mobile-only{
+        margin: 40px map-get($map: $common-margin, $key: 'mobile');
+        &-container{
+            .thumb-imgfull{
+                width: 50%;
+                &:nth-of-type(3n){
+                    margin: 0;
+                    align-items: center;
+                }
+                &:nth-of-type(3n+1){
+                    margin: 0;
+                    align-items: center;
+    
+                }
+            }
         }
     }
 }
@@ -72,7 +114,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        padding: 35px;
+        padding: $contact-modal-padding;
         margin: auto;
         margin-top: 40px;
         header{
@@ -85,12 +127,21 @@
                 position: absolute;
                 top: 15px;
                 right: 15px;
+                width: $contact-modal-close-img-heigt;
+                height: $contact-modal-close-img-heigt;
             }
+
+            
     
             h1{
                 font-size: 64px;
                 font-weight: normal;
                 margin: 0;
+                // Pour éviter que le text ne se retrouve  en dessous de l'image qui permet de fermer le modal
+                margin-right: calc($contact-modal-img-right + $contact-modal-padding + 10px);
+                @include mobile-only{ 
+                    font-size: 36px;
+            }
             }
         }
     }
