@@ -17,11 +17,11 @@ function filterListHideToggle(){
                 //On verifie si la liste est actuellement visible
                 if(filterListIsVisible){
                     //liste visible donc on la rend invisible
-                    filterListChildren[i].style.visibility = "inherit";
+                    filterListChildren[i].style.display = "none";
                 }
                 else{
                     //liste invisible donc on la rend visible
-                    filterListChildren[i].style.visibility = "hidden";
+                    filterListChildren[i].style.display = "flex";
 
                 }
             }

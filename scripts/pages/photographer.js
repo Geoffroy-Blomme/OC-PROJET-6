@@ -1,6 +1,10 @@
+import {displayModal, closeModal} from '/scripts/utils/modal.js';
+import {photographerFactory} from '/scripts/factories/photographer.js';
+import { contactFormAddEventListeners,closeContactModal } from '../utils/contactForm.js';
 const params = (new URL(document.location)).searchParams;
 let paramsValues = {};
 const id = params.get('id');
+
 const filterButton = document.querySelector(".media-filters-container");
 const filtersMediaList = document.querySelector(".filter-selector__list");
 const mediaSection = document.querySelector(".medias");
@@ -47,8 +51,7 @@ async function displayDataPhotographer(photographer) {
     const photographerModel = photographerFactory(photographer);
     const photographerHeaderDOM = photographerModel.getPhotographerHeaderDOM();
     photographHeader.appendChild(photographerHeaderDOM);
-
-
+    contactFormAddEventListeners();
 };
 
 async function displayDataMedia(medias,name){
@@ -76,7 +79,7 @@ function filterButtonArrowToggle(){
 
 function filtersMediaListTextContent(){
     const children = filtersMediaList.children;
-    for(i = 0; i<children.length; i++){
+    for(let i = 0; i<children.length; i++){
         children[i].textContent = children[i].dataset.value;
     }
 
@@ -110,6 +113,19 @@ function contactModalAddNameToTitle(name){
     contactModalTitle.innerText += `\r\n ${name}`;
 }
 
+function addEventListenersToMedia(){
+    const allThumbs = document.querySelectorAll(".thumb-imgfull");
+    allThumbs.forEach(elt => {
+        elt.addEventListener("click",lightboxModalIsOpened);
+    });
+}
+
+function lightboxModalIsOpened(){
+    const lightboxModal = document.querySelector("#lightbox_modal");
+    displayModal(lightboxModal);
+    document.querySelector("body").style.overflow="hidden";
+}
+
 async function init() {
     // Récupère les datas des photographes et des medias
     const { photographers, media } = await getPhotographers();
@@ -124,6 +140,9 @@ async function init() {
     stickyInfoPrice(photographerData);
     stickyInfoLikesNumber();
     contactModalAddNameToTitle(name);
+    addEventListenersToMedia();
+    console.log(photographerMedia);
+    lightboxModalIsOpened();
 }
 
 init();

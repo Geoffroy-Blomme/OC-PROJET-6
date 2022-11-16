@@ -1,4 +1,4 @@
-function photographerFactory(data) {
+export function photographerFactory(data) {
     const { name, portrait, id, city, country, price, tagline } = data;
 
     const picture = `assets/photographers/${portrait}`;
@@ -34,13 +34,13 @@ function photographerFactory(data) {
         <div class="photographer__profile__location">${country}, ${city}</div>            
         <div class="photographer__profile__tagline">${tagline}</div>
     </div>
-    <button aria-label="Contact me" class="contact_button btn" onclick="displayModal()">Contactez-moi</button>
+    <button aria-label="Contact me" class="contact_button btn" ">Contactez-moi</button>
     <div class="photographer__pic-container">
         <img src="${picture}" alt="Portrait de ${name}" class="photographer__pic">
     </div>
     `;
     photographerHeaderDiv.innerHTML += photographerHeaderInnerHTML;
-    
+
     return (photographerHeaderDiv);
     }
 

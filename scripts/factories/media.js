@@ -15,7 +15,7 @@ function mediaFactory(data,name){
         let videoDOM = document.createDocumentFragment();
         const videoDOMInnerHtml = 
         `
-        <video controls class="thumb-imgfull__video" src="${link}/${videoData.video}">
+        <video class="thumb-imgfull__video" alt="${data[i].title}" src="${link}/${videoData.video}">
         </video>
         `;
         videoDOM.innerHTML = videoDOMInnerHtml;
@@ -54,7 +54,7 @@ function mediaFactory(data,name){
             }
             const thumbImgFullInnerHtml = 
             `
-            <article class="thumb-imgfull">
+            <article data-value="${i}" class="thumb-imgfull">
                 <div class="thumb-imgfull__media-container">
                     ${mediaDOM.innerHTML}
                 </div>

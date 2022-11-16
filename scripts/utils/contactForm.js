@@ -1,7 +1,9 @@
-function displayModal() {
-    const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
-    modal.style.height = getBodyHeight() +"px";
+import {displayModal, getBodyHeight, closeModal} from '/scripts/utils/modal.js';
+
+function displayContactModal() {
+    const contactModal = document.querySelector("#contact_modal");
+    contactModal.style.height = getBodyHeight() +"px";
+    displayModal(contactModal);
     focusCloseLogo();
 }
 
@@ -9,16 +11,19 @@ function focusCloseLogo(){
     document.querySelector(".contact_modal__close-logo").focus();
 }
 
-function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
-    document.querySelector(".photographer__pic-container").focus();
-
+function closeContactModal(){
+    const contactModal = document.querySelector("#contact_modal");
+    closeModal(contactModal);
 }
 
-function getBodyHeight(){
-    const body = document.querySelector("body");
-    return body.offsetHeight;
+function contactFormAddEventListeners(){
+    const contactButton = document.querySelector(".contact_button");
+    contactButton.addEventListener("click",displayContactModal);
+    const closeImg = document.querySelector(".contact_modal__close-logo");
+    closeImg.addEventListener("click",closeContactModal);
+    const closeButton = document.querySelector(".contact__modal__form .contact_button");
+    closeButton.addEventListener("click",closeContactModal);
+    closeButton.addEventListener("click",consoleLogResultOfForm);
 }
 
 function consoleLogResultOfForm(){
@@ -32,3 +37,5 @@ function consoleLogResultOfForm(){
     }
     
 }
+
+export {contactFormAddEventListeners,closeContactModal};
