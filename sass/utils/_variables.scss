@@ -21,4 +21,8 @@ $contact-modal-img-right:15px;
 
 $photographer-thumb-imgfull-margin-bottom:25px;
 $photographer-thumb-imgfull-nb-elements-on-one-line:3;
-$photographer-lightbox-modal-control-arrow-margin:40px;
+$photographer-lightbox-modal-control-arrow-margin:(
+    'desktop':40px,
+    'mobile':5px
+);
+$photographer-lightbox-modal-top-margin:30px;

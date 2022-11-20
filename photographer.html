@@ -31,14 +31,14 @@
           </span>
           <div class="filter-selector__list-container">
             <ul role="listbox" aria-activedescendant="option1" tabindex="0" class="filter-selector__list">
-              <li class="btn" role="option" tabindex="0" data-value="Popularité">
+              <li class="btn" id="filter-popularity" role="option" tabindex="0" data-value="Popularité">
 
               </li>
 
-              <li class="btn" role="option" tabindex="0" data-value="Date" >
+              <li class="btn" id="filter-date" role="option" tabindex="0" data-value="Date" >
 
               </li>
-              <li class="btn" role="option" tabindex="0" data-value="Titre" >
+              <li class="btn" id="filter-title" role="option" tabindex="0" data-value="Titre" >
 
               </li>
             </ul>
@@ -90,19 +90,21 @@
       <div role="dialog" aria-label="image closeup view" class="lightbox">
           <div class="lightbox__content">
             <div class="lightbox__content__media-container">
-              <video src="/assets/photographers/Mimi/Animals_Wild_Horses_in_the_mountains.mp4" class="lightbox-video"></video>
+              <video src="" class="lightbox-video"></video>
+              <img src="" alt="" class="lightbox-img">
+              <h4 class="lightbox__content__title">
+                Animals Wild Horses in the moutain
+              </h4>
             </div>
-            <h4 class="lightbox__content__title">
-              Animals Wild Horses in the moutain
-            </h4>
-            <a aria-label="next image" href="" class="lightbox__control-arrow lightbox__control-arrow--next">
+            
+            <a href="" onclick="return false;" aria-label="next image"class="lightbox__control-arrow lightbox__control-arrow--next">
               <span class="lightbox__control-arrow__logo">
-                <i class="fa-solid fa-angle-right fa-2xl"></i>              </span>
+                <i class="fa-solid fa-angle-right fa-2xl"></i>
               </span>
             </a>
-            <a aria-label="previous image" href="" class="lightbox__control-arrow lightbox__control-arrow--previous">
+            <a href="" onclick="return false;" aria-label="previous image" class="lightbox__control-arrow lightbox__control-arrow--previous">
               <span class="lightbox__control-arrow__logo">
-                <i class="fa-solid fa-angle-left fa-2xl"></i>              </span>
+                <i class="fa-solid fa-angle-left fa-2xl"></i>
             </a>
             <button aria-label="Close dialog" class="lightbox__close-button">
               <span class="lightbox__close-button__logo">
@@ -117,7 +119,7 @@
     <script type="module" src="scripts/utils/contactForm.js"></script>
     <script src="scripts/utils/filterSelector.js"></script>
     <script type="module" src="scripts/factories/photographer.js"></script>
-    <script src="scripts/factories/media.js"></script>
+    <script type="module" src="scripts/factories/media.js"></script>
     <script type="module" src="scripts/pages/photographer.js"></script>
 
   </body>

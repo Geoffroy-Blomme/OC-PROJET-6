@@ -1,5 +1,6 @@
+let mediaLink;
 function mediaFactory(data,name){
-    const mediaLink = `assets/photographers`;
+     mediaLink = `assets/photographers`;
 
     // Retourne le lien qui contient les medias du photographe
     function getPhotographerLink(name){
@@ -8,14 +9,14 @@ function mediaFactory(data,name){
         let firstName = slicedName[0];
         //Si prenom compose on remplace le - par un espace
         firstName = firstName.replace('-',' ');
-        return firstName;
+        return mediaLink + "/" + firstName;
     }
 
     function getVideoDOM(videoData, link){
         let videoDOM = document.createDocumentFragment();
         const videoDOMInnerHtml = 
         `
-        <video class="thumb-imgfull__video" alt="${data[i].title}" src="${link}/${videoData.video}">
+        <video class="thumb-imgfull__video" alt="${videoData.title}" src="${link}/${videoData.video}">
         </video>
         `;
         videoDOM.innerHTML = videoDOMInnerHtml;
@@ -26,7 +27,7 @@ function mediaFactory(data,name){
         let imgDOM = document.createDocumentFragment();
         const imgDOMInnerHtml = 
         `
-        <img  class="thumb-imgfull__img" src="${link}/${imageData.image}" alt="Photo : ${data[i].title}" />
+        <img  class="thumb-imgfull__img" src="${link}/${imageData.image}" alt="Photo : ${imageData.title}" />
         `;
         imgDOM.innerHTML = imgDOMInnerHtml;
         return imgDOM;
@@ -36,10 +37,10 @@ function mediaFactory(data,name){
         const div = document.createElement("div");
         div.classList.add('medias-container');
         
-        const fullMediaLink = mediaLink +'/' + getPhotographerLink(name);            
+        const fullMediaLink =  getPhotographerLink(name);            
 
         // pour chaque element de data on creer un thumb-imgfull
-        for(i = 0; i < data.length ; i++){
+        for(let i = 0; i < data.length ; i++){
             let mediaDOM;
             if('image' in data[i]){
                 mediaDOM = getImageDOM(data[i],fullMediaLink);
@@ -54,8 +55,8 @@ function mediaFactory(data,name){
             }
             const thumbImgFullInnerHtml = 
             `
-            <article data-value="${i}" class="thumb-imgfull">
-                <div class="thumb-imgfull__media-container">
+            <article data-title=${data[i].title} data-date="${data[i].date}" data-value="${i}" class="thumb-imgfull">
+                <div role="button" aria-label="Open the LightBox for ${data[i].title}" tabindex="0"  class="thumb-imgfull__media-container">
                     ${mediaDOM.innerHTML}
                 </div>
                 
@@ -68,7 +69,7 @@ function mediaFactory(data,name){
                         <span class="likes__number">
                             ${data[i].likes}
                         </span>
-                        <span class="likes__logo">
+                        <span data-liked="false" class="likes__logo">
                             &hearts;
                         </span>
                     </div>
@@ -81,5 +82,8 @@ function mediaFactory(data,name){
         return div;
 
     }
-    return {data, getMediaCardDOM};
+    return {data, getMediaCardDOM, mediaLink,getPhotographerLink };
 }
+
+ 
+export {mediaFactory};
