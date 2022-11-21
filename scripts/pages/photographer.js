@@ -147,68 +147,58 @@ function lightBoxModalIsClosed(){
     bodyToggleOverflow();
 }
 
-function lightboxModalIsOpened(){
+function lightboxModalIsOpened(evt){
     displayModal(lightboxModal);
     bodyToggleOverflow();
-    lightBoxChangeContent();
+    let article = evt.currentTarget.parentNode;
+    lightBoxChangeContent(article);
 }
 
 // Va changer le contenu de la Lightbox, le media et le titre, par ex, en fonction des donnees qui se trouvent dans photographerMedia[lightboxMediaCounter];
-async function lightBoxChangeContent(){
-    const dataToPut = photographerMedia[lightboxMediaCounter];
-    const lightboxContentTitle = document.querySelector(".lightbox__content__title");
-    lightBoxChangeMedia(dataToPut);
+async function lightBoxChangeContent(element){
+    lightBoxChangeMedia(element);
 }
 
-function lightBoxChangeMedia(data){
+function lightBoxChangeMedia(element){
     const lightboxContentTitle = document.querySelector(".lightbox__content__title");
-    lightboxContentTitle.innerText = data.title;
-    const dataToPut = photographerData;
-    const mediaFac = mediaFactory(data,photographerData.name);
-    const link = mediaFac.getPhotographerLink(photographerData.name) +'/' + getLinkToFile(data);
-    if('image' in data){
-        lightBoxChangeMediaImg(link,dataToPut);
+    lightboxContentTitle.innerText = element.getAttribute('data-title');
+
+    const imgElement = element.querySelector(".thumb-imgfull__img");
+    const videoElement = element.querySelector(".thumb-imgfull__video");
+
+    //On entre si il y a un element de classe .thumb-imgfull__img
+    if(imgElement){
+        lightBoxChangeMediaImg(element,imgElement);
     }
-    else if('video' in data){
-        lightBoxChangeMediaVideo(link,dataToPut);
+
+    if(videoElement){
+        lightBoxChangeMediaVideo(element,videoElement);
     }
 }
 
-function lightBoxChangeMediaImg(link,data){
+function lightBoxChangeMediaImg(element,imgElement){
     lightboxVideo.style.display = 'none';
     lightboxImg.style.display = '';
-    lightboxImg.src = link;
-    const imgAlt = `Picture of ${data.title}`;
+    lightboxImg.src = imgElement.getAttribute('src');
+    const imgAlt = `Picture of ${element.getAttribute('data-title')}`;
     lightboxImg.setAttribute("alt",imgAlt);
 }
 
-function lightBoxChangeMediaVideo(link,data){
+function lightBoxChangeMediaVideo(element,videoElement){
     lightboxImg.style.display = 'none';
     lightboxVideo.style.display = '';
-    lightboxVideo.src = link;
+    lightboxVideo.src = videoElement.getAttribute('src');
     lightboxVideo.setAttribute("controls",'');
-    const videoAlt = `Video of ${data.title}`;
+    const videoAlt = `Video of ${element.getAttribute('data-title')}`;
     lightboxVideo.setAttribute("alt",videoAlt);
-
-}
-
-// Renvoie le lien qui va renvoyer vers le media contenu dans les data
-function getLinkToFile(data){
-    let link = '';
-    if('image' in data){
-        link += data.image;
-    }
-    else if ('video' in data){
-        link +=data.video;
-    }
-    return link;
 }
 
 // 
-function lightboxControlArrowIsClicked(data, indexChange){
+function lightboxControlArrowIsClicked(indexChange){
+    const mediaList = document.querySelector('.medias-container').children;
     if(indexChange == 1){
         // On est au dernier media et on veut le prochain, donc on revient au premier
-        if(lightboxMediaCounter == (photographerMedia.length -1)){
+        if(lightboxMediaCounter == (mediaList.length -1)){
             lightboxMediaCounter = 0;
         }
         else{
@@ -218,23 +208,23 @@ function lightboxControlArrowIsClicked(data, indexChange){
     else if(indexChange == -1){
         // On est au premier media et on veut le predecent, donc on va au dernier
         if(lightboxMediaCounter == 0){
-            lightboxMediaCounter = (photographerMedia.length -1)
+            lightboxMediaCounter = (mediaList.length -1)
         }
         else{
             lightboxMediaCounter--;
         }
     }
-    lightBoxChangeContent(photographerMedia[lightboxMediaCounter]);
+    lightBoxChangeContent(mediaList[lightboxMediaCounter]);
 
 }
 
-function lightboxPreviousMedia(data){
-    lightboxControlArrowIsClicked(data,-1)
+function lightboxPreviousMedia(){
+    lightboxControlArrowIsClicked(-1)
 }
 
 
-function lightboxNextMedia(data){
-    lightboxControlArrowIsClicked(data,+1);
+function lightboxNextMedia(){
+    lightboxControlArrowIsClicked(+1);
 
 }
 
