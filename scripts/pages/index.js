@@ -1,26 +1,26 @@
- import {photographerFactory} from '/scripts/factories/photographer.js';
- async function getPhotographers() {
-        // Penser à remplacer par les données récupérées dans le json
-        
-        let photographers = await fetch('data/photographers.json');
-        let photographersJson = await photographers.json();
-        return photographersJson;
-    }
+import { photographerFactory } from './scripts/factories/photographer.js'
+async function getPhotographers () {
+  // Penser à remplacer par les données récupérées dans le json
 
-    async function displayData(photographers) {
-        const photographersSection = document.querySelector(".photographer_section");
+  const photographers = await fetch('data/photographers.json')
+  const photographersJson = await photographers.json()
+  return photographersJson
+}
 
-        photographers.forEach((photographer) => {
-            const photographerModel = photographerFactory(photographer);
-            const userCardDOM = photographerModel.getUserCardDOM();
-            photographersSection.appendChild(userCardDOM);
-        });
-    };
+async function displayData (photographers) {
+  const photographersSection = document.querySelector('.photographer_section')
 
-    async function init() {
-        // Récupère les datas des photographes
-        const { photographers } = await getPhotographers();
-        displayData(photographers);
-    };
-    
-    init();
+  photographers.forEach((photographer) => {
+    const photographerModel = photographerFactory(photographer)
+    const userCardDOM = photographerModel.getUserCardDOM()
+    photographersSection.appendChild(userCardDOM)
+  })
+}
+
+async function init () {
+  // Récupère les datas des photographes
+  const { photographers } = await getPhotographers()
+  displayData(photographers)
+}
+
+init()

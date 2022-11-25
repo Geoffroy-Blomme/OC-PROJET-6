@@ -1,29 +1,28 @@
-.photographer{
-    max-width: 300px;
-    justify-self: center;
-        &__profile{
-            display: flex;
-            flex-direction: column;
-            &__name{
-                color: $index-photographer-name-color;
-                font-size: 64px;
-                margin: 0;
-            }
-            
-            &__location{
-                color: $main-red;
-                margin-bottom: 5px;
-                font-size: 20px;
-            }
-            &__tagline{
-                margin-bottom: 5px;
-                font-size: 16px;
-            }
-        
-            &__price{
-                color: $light-grey;
-                font-size: 14px;
-            }
-        }
-    
+.photographer {
+  max-width: 300px;
+  justify-self: center;
+  &__profile {
+    display: flex;
+    flex-direction: column;
+    &__name {
+      color: $index-photographer-name-color;
+      font-size: 64px;
+      margin: 0;
+    }
+
+    &__location {
+      color: $main-red;
+      margin-bottom: 5px;
+      font-size: 20px;
+    }
+    &__tagline {
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    &__price {
+      color: $light-grey;
+      font-size: 14px;
+    }
+  }
 }

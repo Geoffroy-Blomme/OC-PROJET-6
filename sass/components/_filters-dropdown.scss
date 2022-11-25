@@ -1,48 +1,60 @@
-.filter-selector{
-    position: relative;
-    &__button{
-        
+.filter-selector {
+  position: relative;
+  &__button {
+  }
+  &__arrow-logo {
+    &:hover {
+      cursor: pointer;
     }
-    &__arrow-logo{
-        &:hover{
-            cursor: pointer;
-        }
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        right: 10px;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        z-index: 2;
-        color: white;
-        transition: transform 0.2s ease-in;
-    }
-    &__list-container{
-        position: absolute;
-        left: 0;
-        top: 0;
-        .filter-selector__list{
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            cursor: pointer;
-            //On aura plusieurs bouton l'un au dessus de l'autre, on veut que seulement le dernier est une border-radius pour le botton et seulement le premier pour le top.
-            li:not(:last-of-type){
-                border-bottom-left-radius: 0px;
-                border-bottom-right-radius: 0px;
-            }
-            // De base tous les li a part le premier sont caches
-            li:not(:first-of-type){
-                border-top-left-radius: 0px;
-                border-top-right-radius: 0px;
-                display: none;
-            }
-            // Le premier element n'est pas cliquable
-            li:first-of-type{
-                pointer-events: none;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 2;
+    color: white;
+    transition: transform 0.2s ease-in;
+  }
+  &__list-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    .filter-selector__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
 
-            }
+      .btn {
+        justify-content: left;
+      }
+      //On aura plusieurs bouton l'un au dessus de l'autre, on veut que seulement le dernier est une border-radius pour le botton et seulement le premier pour le top.
+      li:not(:last-of-type) {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+      // De base tous les li a part le premier sont caches
+      li:not(:first-of-type) {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        display: none;
+        position: relative;
+
+        &:after {
+          content: "";
+          position: absolute;
+          border-top: 1px white solid;
+          top: 0;
+          left: 7.5%;
+          width: 85%;
         }
+      }
+      // Le premier element n'est pas cliquable
+      li:first-of-type {
+        pointer-events: none;
+      }
     }
+  }
 }

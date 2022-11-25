@@ -1,38 +1,34 @@
-.photographer{
+.photographer {
+  display: flex;
+  flex-direction: column;
+  &__link {
     display: flex;
+    text-decoration: none;
     flex-direction: column;
-    &__link{
-        display: flex;
-        text-decoration: none;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 10px;
-        text-decoration: none;
-        color: black;
-        &:hover{
-            .photographer__link__pic-container{
-                .photographer__pic{
-                    height: 110%;
-                    width:  110%;
-                }
-            }
-            .photographer__profile__name{
-                    @include lighten-color($index-photographer-name-color);
-            }
+    align-items: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: black;
+    &:hover {
+      .photographer__link__pic-container {
+        .photographer__pic {
+          height: 110%;
+          width: 110%;
         }
-        .photographer__pic-container{
-            margin-bottom: 20px;
-        }        
-
-        .photographer__profile{
-            text-align: center;
-            &__name{
-                font-size: 36px;
-            }
-        }
-        
-
+      }
+      .photographer__profile__name {
+        @include lighten-color($index-photographer-name-color);
+      }
+    }
+    .photographer__pic-container {
+      margin-bottom: 20px;
     }
 
-    
+    .photographer__profile {
+      text-align: center;
+      &__name {
+        font-size: 36px;
+      }
+    }
+  }
 }

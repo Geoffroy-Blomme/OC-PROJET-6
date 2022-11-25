@@ -1,6 +1,7 @@
 .contact_button {
-    &:hover, &:focus{
-        background-color: $light-brown;
-        color: black;
-    }
+  &:hover,
+  &:focus {
+    background-color: $light-brown;
+    color: black;
+  }
 }

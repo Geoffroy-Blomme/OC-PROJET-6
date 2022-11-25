@@ -1,45 +1,45 @@
 .photograph-header {
-    background-color: #FAFAFA;
-    height: 300px;
-    &__container{
-        display: flex;
-        flex-direction: row;
+  background-color: #fafafa;
+  height: 300px;
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+
+    .photographer__profile {
+      &__location {
+        margin-top: 10px;
+        margin-bottom: 15px;
+      }
+      &__tagline {
+        color: $light-grey;
+        font-size: 18px;
+      }
+    }
+  }
+
+  @include mobile-only {
+    height: auto;
+    &__container {
+      flex-direction: column;
+      padding-top: 20px;
+      .photographer__profile {
         align-items: center;
-        justify-content: space-around;
-        margin: auto;
-        height: 100%;
-        width: 100%;
-
-        .photographer__profile{
-            &__location{
-                margin-top: 10px;
-                margin-bottom: 15px;
-            }
-            &__tagline{
-                color: $light-grey;
-                font-size: 18px;
-            }
+        &__name {
+          text-align: center;
         }
-    }
+      }
 
-    @include mobile-only{
-        height: auto;
-        &__container{
-            flex-direction: column;
-            padding-top: 20px;
-            .photographer__profile{
-                align-items: center;
-                &__name{
-                    text-align: center;
-                }
-            }
-
-            .contact_button{
-                margin: 20px auto;
-            }
-            .photographer__pic-container{
-                margin: 20px auto;
-            }
-        }
+      .contact_button {
+        margin: 20px auto;
+      }
+      .photographer__pic-container {
+        margin: 20px auto;
+      }
     }
+  }
 }

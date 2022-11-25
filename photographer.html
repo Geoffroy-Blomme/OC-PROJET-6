@@ -72,22 +72,21 @@
         </header>
 				<form class="contact__modal__form">
 					<div>
-						<label for="first-name">Prénom</label>
-						<input aria-label="First Name" type="text" name="first-name" id="first-name" />
-            <label for="last-name">Nom
-            </label>
-            <input aria-label="Last Name" type="text" name="last-name" id="last-name">
-            <label for="email">Email</label>
-            <input aria-label="Email" type="text" name="email" id="email">
-            <label for="message">Votre message</label>
-            <textarea aria-label="Your message" name="message" id="message" rows="10"></textarea>
+						<label id="first-name"  for="first-name">Prénom</label>
+						<input aria-labelledby="first-name" type="text" name="first-name" />
+            <label  id="last-name" for="last-name">Nom</label>
+            <input aria-labelledby="last-name" type="text" name="last-name">
+            <label for="email" id="email">Email</label>
+            <input aria-labelledby="email" type="text" name="email" >
+            <label  id="message"  for="message">Votre message</label>
+            <textarea aria-labelledby="message" name="message"rows="10"></textarea>
 					</div>
           <button aria-label="Send , Close Contact form" type="button" class="btn contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <div aria-modal="true" aria-hidden="true" aria-labelledby="contact_modal__title" class="modal" id="lightbox_modal">
-      <div role="dialog" aria-label="image closeup view" class="lightbox">
+    <div aria-modal="true" aria-hidden="true" aria-labelledby="lightbox-modal" class="modal" id="lightbox_modal">
+      <div role="dialog" aria-label="image closeup view" id="lightbox-modal" class="lightbox">
           <div class="lightbox__content">
             <div class="lightbox__content__media-container">
               <video src="" class="lightbox-video"></video>
