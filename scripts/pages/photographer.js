@@ -6,7 +6,6 @@ const params = new URL(document.location).searchParams;
 const id = params.get("id");
 const lightboxModal = document.querySelector("#lightbox_modal");
 const lightboxCloseButton = document.querySelector(".lightbox__close-button");
-const filtersMediaList = document.querySelector(".filter-selector__list");
 const mediaSection = document.querySelector(".medias");
 const stickyInfoLikesNumber = document.querySelector(
   ".sticky-info .likes__number"
@@ -55,13 +54,6 @@ async function displayDataMedia(medias, name) {
   const mediaModel = mediaFactory(medias, name);
   const mediaCardDOM = mediaModel.getMediaCardDOM();
   mediaSection.appendChild(mediaCardDOM);
-}
-
-function filtersMediaListTextContent() {
-  const children = filtersMediaList.children;
-  for (let i = 0; i < children.length; i++) {
-    children[i].textContent = children[i].dataset.value;
-  }
 }
 
 function stickyInfoPrice(photographerData) {
@@ -281,6 +273,17 @@ function sortByTitle(a, b) {
   return 0;
 }
 
+// Rend l'element cliquable via les touches du clavier.
+function makeClickableElementAccessible(evt) {
+  const keyDown = evt.key;
+  console.log("ok");
+  if (keyDown === "Enter") {
+    console.log("enter");
+
+    evt.currentTarget.click();
+  }
+}
+
 function addEventListenersToMedia() {
   const allThumbs = document.querySelectorAll(".thumb-imgfull");
   allThumbs.forEach((elt) => {
@@ -300,6 +303,7 @@ function addEventListenersToMedia() {
   );
   allThumbsMediaContainer.forEach((elt) => {
     elt.addEventListener("click", lightboxModalIsOpened);
+    elt.addEventListener("keydown", makeClickableElementAccessible);
   });
   // appuyer sur titre du media va ouvrir la lightbox
   const allThumbsText = document.querySelectorAll(".thumb-imgfull__text");
@@ -344,7 +348,6 @@ async function init() {
   photographerMedia = getMedia(id, media);
   // Récupère les datas de notre photographe
   photographerData = getPhotographerData(id, photographers);
-  filtersMediaListTextContent();
   displayDataPhotographer(photographerData);
   const name = photographerData.name;
   displayDataMedia(photographerMedia, name);
