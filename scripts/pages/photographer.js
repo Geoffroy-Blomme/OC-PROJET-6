@@ -18,7 +18,7 @@ const lightboxVideo = document.querySelector(".lightbox-video");
 const lightboxImg = document.querySelector(".lightbox-img");
 
 async function getPhotographers() {
-  const photographers = await fetch("/data/photographers.json");
+  const photographers = await fetch("./../../data/photographers.json");
   const photographersJson = await photographers.json();
   return photographersJson;
 }
