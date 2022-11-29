@@ -49,7 +49,7 @@ function mediaFactory(data, name) {
         return "";
       }
       const thumbImgFullInnerHtml = `
-            <article data-title="${data[i].title}" data-date="${data[i].date}" data-value="${i}" class="thumb-imgfull">
+            <article data-value="${i}" class="thumb-imgfull">
                 <div role="button" aria-label="Open the LightBox for ${data[i].title}" tabindex="0"  class="thumb-imgfull__media-container">
                     ${mediaDOM.innerHTML}
                 </div>

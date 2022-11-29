@@ -14,6 +14,8 @@ function focusCloseLogo() {
 function closeContactModal() {
   const contactModal = document.querySelector("#contact_modal");
   closeModal(contactModal);
+  const contactButton = document.querySelector(".contact_button");
+  contactButton.focus();
 }
 
 function contactFormAddEventListeners() {

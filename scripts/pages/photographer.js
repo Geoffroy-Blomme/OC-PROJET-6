@@ -85,15 +85,43 @@ function contactModalAddNameToTitle(name) {
 
 function lightBoxModalIsClosed() {
   closeModal(lightboxModal);
+  lightboxToggleAriaHidden(lightboxModal);
   lightboxArrowKeyboardToggle(false);
+  focusTheMedia();
+}
+
+// focus le container du media qui
+function focusTheMedia() {
+  const medias = document.querySelector(".medias-container").children;
+  const currentMedia = medias[lightboxMediaCounter].querySelector(
+    ".thumb-imgfull__media-container"
+  );
+  currentMedia.focus();
 }
 
 function lightboxModalIsOpened(evt) {
   displayModal(lightboxModal);
+  // On donne le focus a la fleche qui permet de
+  document.querySelector(".lightbox__control-arrow--next").focus();
+  lightboxToggleAriaHidden(lightboxModal);
   const article = evt.currentTarget.parentNode;
   lightboxMediaCounter = article.getAttribute("data-value");
   lightBoxChangeContent(lightboxMediaCounter);
   lightboxArrowKeyboardToggle(true);
+}
+
+function lightboxToggleAriaHidden(lightboxModal) {
+  const hiddenAttribute = "aria-hidden";
+  let hiddenStatus = lightboxModal.getAttribute(hiddenAttribute);
+  // On verifie que l'attribut existe bien
+  if (hiddenStatus) {
+    if (hiddenStatus === "true") {
+      hiddenStatus = "false";
+    } else {
+      hiddenStatus = "true";
+    }
+    lightboxModal.setAttribute(hiddenAttribute, hiddenStatus);
+  }
 }
 
 function lightboxArrowKeyboardAction(event) {
@@ -276,10 +304,7 @@ function sortByTitle(a, b) {
 // Rend l'element cliquable via les touches du clavier.
 function makeClickableElementAccessible(evt) {
   const keyDown = evt.key;
-  console.log("ok");
   if (keyDown === "Enter") {
-    console.log("enter");
-
     evt.currentTarget.click();
   }
 }
@@ -310,6 +335,12 @@ function addEventListenersToMedia() {
   allThumbsText.forEach((elt) => {
     elt.addEventListener("click", lightboxModalIsOpened);
   });
+
+  // On ajoute les events listeners sur les like boutons.
+  const likeButtons = document.querySelectorAll(".thumb-imgfull .likes__logo");
+  likeButtons.forEach((elt) => {
+    elt.addEventListener("click", likeButtonIsClicked);
+  });
 }
 
 function eventListeners() {
@@ -324,10 +355,7 @@ function eventListeners() {
     ".lightbox__control-arrow--previous"
   );
   lightboxControlArrowPrevious.addEventListener("click", lightboxPreviousMedia);
-  const likeButtons = document.querySelectorAll(".likes__logo");
-  likeButtons.forEach((elt) => {
-    elt.addEventListener("click", likeButtonIsClicked);
-  });
+
   const filterPopular = document.querySelector("#filter-popularity");
   const filterDate = document.querySelector("#filter-date");
   const filterTitle = document.querySelector("#filter-title");

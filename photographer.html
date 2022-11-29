@@ -30,7 +30,7 @@
 
           </span>
           <div class="filter-selector__list-container">
-            <ul role="listbox" tabindex="0" aria-activedescendant="filter-popularity" class="filter-selector__list">
+            <ul role="listbox" tabindex="-1" aria-activedescendant="filter-popularity" class="filter-selector__list">
               <li class="btn filter-selector__list__elt" id="filter-popularity" role="option" tabindex="0" data-value="Popularité">
 
               </li>
@@ -85,8 +85,8 @@
 				</form>
 			</div>
 		</div>
-    <div aria-modal="true" aria-hidden="true" aria-labelledby="lightbox-modal" class="modal" id="lightbox_modal">
-      <div role="dialog" aria-label="image closeup view" id="lightbox-modal" class="lightbox">
+    <div aria-modal="true" role="application" aria-hidden="true" aria-labelledby="lightbox-modal" class="modal" id="lightbox_modal">
+      <div role="application" aria-live="polite" aria-label="image closeup view" id="lightbox-modal" class="lightbox">
           <div class="lightbox__content">
             <div class="lightbox__content__media-container">
               <video src="" class="lightbox-video"></video>
@@ -96,16 +96,16 @@
               </h4>
             </div>
             
-            <a href="" onclick="return false;" aria-label="next image"class="lightbox__control-arrow lightbox__control-arrow--next">
+            <a aria-label="next image" href="" onclick="return false;" class="lightbox__control-arrow lightbox__control-arrow--next">
               <span class="lightbox__control-arrow__logo">
                 <i class="fa-solid fa-angle-right fa-2xl"></i>
               </span>
             </a>
-            <a href="" onclick="return false;" aria-label="previous image" class="lightbox__control-arrow lightbox__control-arrow--previous">
+            <a aria-label="previous image"  href="" onclick="return false;"  class="lightbox__control-arrow lightbox__control-arrow--previous">
               <span class="lightbox__control-arrow__logo">
                 <i class="fa-solid fa-angle-left fa-2xl"></i>
             </a>
-            <button aria-label="Close dialog" class="lightbox__close-button">
+            <button aria-label="Close Lightbox" class="lightbox__close-button">
               <span class="lightbox__close-button__logo">
               <i class="fa-sharp fa-solid fa-xmark fa-2xl"></i>
               </span>
