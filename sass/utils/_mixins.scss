@@ -1,31 +1,15 @@
-@mixin lighten-color($color){
-    color: scale-color($color: $color, $lightness: 20%);
+@mixin lighten-color($color) {
+  color: scale-color($color: $color, $lightness: 20%);
 }
 
-@mixin tablet-only{
-    @media (max-width:map-get($breakpoints,'tablet')){
-        @content;
-    }
+@mixin tablet-only {
+  @media (max-width: map-get($breakpoints,"tablet")) {
+    @content;
+  }
 }
 
-@mixin mobile-only{
-    @media (max-width:map-get($breakpoints,'mobile')){
-        @content;
-    }
-}
-
-@mixin photographer-thumb-imgfull-first-of-lines{
-    // target le premier element de chaque ligne
-    &:nth-of-type(#{$photographer-thumb-imgfull-nb-elements-on-one-line}n){
-        margin-right: 0;
-        align-items:flex-end;
-    }
-}
-
-@mixin photographer-thumb-imgfull-last-of-lines{
-    //target le derniere element de chaque ligne
-    &:nth-of-type(#{$photographer-thumb-imgfull-nb-elements-on-one-line}n+1){
-        margin-left: 0;
-        align-items:flex-start;
-    }
+@mixin mobile-only {
+  @media (max-width: map-get($breakpoints,"mobile")) {
+    @content;
+  }
 }
