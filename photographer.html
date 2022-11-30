@@ -12,8 +12,9 @@
   <body>
     <header class="main-header">
       <a href="./index.html" aria-label="Return to Homepage" class="logo-link">
-        <img src="assets/images/logo.png" class="logo" alt="Fisheye logo" />
-      </a>    </header>
+        <img alt="Fisheye logo" src="assets/images/logo.png" class="logo"/>
+      </a>    
+    </header>
     <main id="main">
       <div class="photograph-header">
       </div>
@@ -26,7 +27,7 @@
 
           </button>
           <span class="filter-selector__arrow-logo">
-            <i class="fa-solid fa-angle-down fa-lg"></i>
+            <span class="fa-solid fa-angle-down fa-lg"></span>
 
           </span>
           <div class="filter-selector__list-container">
@@ -72,14 +73,14 @@
         </header>
 				<form class="contact__modal__form">
 					<div>
-						<label id="first-name"  for="first-name">Prénom</label>
-						<input aria-labelledby="first-name" type="text" name="first-name" />
-            <label  id="last-name" for="last-name">Nom</label>
-            <input aria-labelledby="last-name" type="text" name="last-name">
+						<label for="first-name">Prénom</label>
+						<input type="text" id="first-name" name="first-name" />
+            <label for="last-name">Nom</label>
+            <input id="last-name"  type="text" name="last-name">
             <label for="email" id="email">Email</label>
-            <input aria-labelledby="email" type="text" name="email" >
-            <label  id="message"  for="message">Votre message</label>
-            <textarea aria-labelledby="message" name="message"rows="10"></textarea>
+            <input type="text" name="email" >
+            <label for="message">Votre message</label>
+            <textarea id="message"  name="message"rows="10"></textarea>
 					</div>
           <button aria-label="Send , Close Contact form" type="button" class="btn contact_button">Envoyer</button>
 				</form>
@@ -91,23 +92,22 @@
             <div class="lightbox__content__media-container">
               <video src="" class="lightbox-video"></video>
               <img src="" alt="" class="lightbox-img">
-              <h4 class="lightbox__content__title">
-                Animals Wild Horses in the moutain
-              </h4>
+              <h2 class="lightbox__content__title">
+              </h2>
             </div>
             
             <a aria-label="next image" href="" onclick="return false;" class="lightbox__control-arrow lightbox__control-arrow--next">
               <span class="lightbox__control-arrow__logo">
-                <i class="fa-solid fa-angle-right fa-2xl"></i>
+                <span class="fa-solid fa-angle-right fa-2xl"></>
               </span>
             </a>
             <a aria-label="previous image"  href="" onclick="return false;"  class="lightbox__control-arrow lightbox__control-arrow--previous">
               <span class="lightbox__control-arrow__logo">
-                <i class="fa-solid fa-angle-left fa-2xl"></i>
+                <span class="fa-solid fa-angle-left fa-2xl"></span>
             </a>
             <button aria-label="Close Lightbox" class="lightbox__close-button">
               <span class="lightbox__close-button__logo">
-              <i class="fa-sharp fa-solid fa-xmark fa-2xl"></i>
+              <span class="fa-sharp fa-solid fa-xmark fa-2xl"></span>
               </span>
             </button>
           </div>
