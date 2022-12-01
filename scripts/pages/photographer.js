@@ -101,15 +101,16 @@ function focusTheMedia() {
 
 function lightboxModalIsOpened(evt) {
   displayModal(lightboxModal);
-  // On donne le focus a la fleche qui permet de
-  document.querySelector(".lightbox__control-arrow--next").focus();
   lightboxToggleAriaHidden(lightboxModal);
   const article = evt.currentTarget.parentNode;
   lightboxMediaCounter = article.getAttribute("data-value");
   lightBoxChangeContent(lightboxMediaCounter);
   lightboxArrowKeyboardToggle(true);
+  // On donne le focus a la fleche qui permet d'aller au prochain media
+  document.querySelector(".lightbox__control-arrow--next").focus();
 }
 
+// Toggle l'attribut aria-hidden de la lightbox.
 function lightboxToggleAriaHidden(lightboxModal) {
   const hiddenAttribute = "aria-hidden";
   let hiddenStatus = lightboxModal.getAttribute(hiddenAttribute);
@@ -124,6 +125,7 @@ function lightboxToggleAriaHidden(lightboxModal) {
   }
 }
 
+// Quand les fleches du clavier sont appuyees, change le media de la Lightbox.
 function lightboxArrowKeyboardAction(event) {
   if (event.key === "ArrowLeft") {
     lightboxPreviousMedia();
