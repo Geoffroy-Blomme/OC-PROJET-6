@@ -63,6 +63,7 @@
     .medias-container {
       .thumb-imgfull {
         width: 90%;
+        margin: 0 auto;
         margin-bottom: $photographer-thumb-imgfull-margin-bottom;
 
         &:nth-of-type(3n) {

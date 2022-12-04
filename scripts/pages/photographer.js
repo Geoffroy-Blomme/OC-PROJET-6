@@ -193,16 +193,17 @@ function lightBoxChangeMediaVideo(data) {
 
 //
 function lightboxControlArrowIsClicked(indexChange) {
-  if (indexChange === 1) {
+  if (indexChange == 1) {
     // On est au dernier media et on veut le prochain, donc on revient au premier
     if (lightboxMediaCounter === photographerMedia.length - 1) {
       lightboxMediaCounter = 0;
     } else {
       lightboxMediaCounter++;
     }
-  } else if (indexChange === -1) {
+  } else if (indexChange == -1) {
     // On est au premier media et on veut le predecent, donc on va au dernier
-    if (lightboxMediaCounter === 0) {
+
+    if (lightboxMediaCounter == 0) {
       lightboxMediaCounter = photographerMedia.length - 1;
     } else {
       lightboxMediaCounter--;
@@ -216,7 +217,7 @@ function lightboxPreviousMedia() {
 }
 
 function lightboxNextMedia() {
-  lightboxControlArrowIsClicked(+1);
+  lightboxControlArrowIsClicked(1);
 }
 
 function likeButtonIsClicked(likeButton) {
@@ -274,11 +275,10 @@ function sortByPopularity(a, b) {
   return 0;
 }
 
-// Renvoie -1 si a est plus récent que b, 1 si b est plus récent que a, 0 si égal.
+// Renvoie -1 si a est moins récent que b, 1 si b est moins récent que a, 0 si égal.
 function sortByDate(a, b) {
   const dateA = Date.parse(a.date);
   const dateB = Date.parse(b.date);
-
   if (dateA < dateB) {
     return -1;
   }
